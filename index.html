@@ -101,6 +101,17 @@
                 background-color: rgba(30, 30, 30, 0.85);
                 color: #E0E0E0;
             }
+            
+            /* FIX: Make project gallery captions always visible */
+            .gallery.style2 article .caption {
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+            }
+            .gallery.style2 article:hover .image img {
+                transform: none; /* Disable image zoom on hover */
+            }
+
 
             .items section {
                 background-color: #1E1E1E;
@@ -113,7 +124,6 @@
                 font-weight: 500;
             }
 
-            /* FIX: Use more specific selectors to ensure all form fields match */
             form input[type="text"],
             form input[type="email"],
             form textarea {
