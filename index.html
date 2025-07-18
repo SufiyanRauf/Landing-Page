@@ -9,11 +9,34 @@
         <style>
             html {
                 scroll-behavior: smooth;
-                /* Add padding to offset the sticky header when jumping to an anchor link */
                 scroll-padding-top: 5em; 
             }
 
-            /* This new rule centers the profile picture in its container */
+            body {
+                background-color: #121212;
+                color: #E0E0E0;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                color: #FFFFFF;
+            }
+            
+            p {
+                color: #BDBDBD;
+            }
+            
+            p.major {
+                color: #E0E0E0;
+            }
+            
+            strong, b {
+                color: #FFFFFF;
+            }
+
+            a {
+                color: #00BCD4;
+            }
+
             .banner .image {
               display: flex;
               justify-content: center;
@@ -21,35 +44,97 @@
             }
 
             #header {
-                position: sticky; /* Changed from fixed to sticky */
+                position: sticky;
                 top: 0;
                 left: 0;
                 width: 100%;
-                background: rgba(255, 255, 255, 0.98);
+                background: #1E1E1E;
                 z-index: 1000;
                 padding: 0.5em 1em;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.5);
                 text-align: center;
             }
 
-            #header ul {
-                margin: 0;
-                padding: 0;
-                list-style: none;
-                display: inline-block;
+            #header ul, #header li {
+                margin: 0; padding: 0; list-style: none; display: inline-block;
             }
-
             #header li {
-                display: inline-block;
                 padding: 0 1em;
             }
-
             #header a {
-                text-decoration: none;
-                color: #555;
-                font-weight: bold;
-                border: none;
+                text-decoration: none; color: #E0E0E0; font-weight: bold; border: none;
             }
+            #header a:hover {
+                color: #00BCD4;
+            }
+
+            .button, input[type="submit"].button {
+                background-color: #00BCD4;
+                color: #121212 !important;
+                border-radius: 5px;
+            }
+            .button.small {
+                background-color: transparent;
+                color: #00BCD4 !important;
+                border: 1px solid #00BCD4;
+            }
+            .button.small:hover {
+                background-color: #00BCD4;
+                color: #121212 !important;
+            }
+
+            .spotlight .content {
+                background-color: #1E1E1E;
+                padding: 2em;
+                border-radius: 10px;
+            }
+
+            .wrapper.style1 {
+                background-color: #1E1E1E;
+            }
+            
+            #projects.wrapper.style1, #skills.wrapper.style1 {
+                 background-color: transparent;
+            }
+
+            .gallery .caption {
+                background-color: rgba(30, 30, 30, 0.85);
+                color: #E0E0E0;
+            }
+
+            .items section {
+                background-color: #1E1E1E;
+                padding: 1.5em;
+                border-radius: 10px;
+            }
+            
+            label {
+                color: #FFFFFF;
+                font-weight: 500;
+            }
+
+            /* FIX: Use more specific selectors to ensure all form fields match */
+            form input[type="text"],
+            form input[type="email"],
+            form textarea {
+                background-color: #2C2C2C;
+                border: 1px solid #666;
+                color: #E0E0E0;
+            }
+            form input[type="text"]:focus,
+            form input[type="email"]:focus,
+            form textarea:focus {
+                border-color: #00BCD4;
+                box-shadow: 0 0 0 1px #00BCD4;
+            }
+            
+            footer .icons a {
+                color: #00BCD4;
+            }
+            footer .icons a:hover {
+                color: #FFFFFF;
+            }
+
         </style>
     </head>
     <body class="is-preload">
@@ -209,7 +294,7 @@
                                 </div>
                             </div>
                             <ul class="actions special">
-                                <li><input type="submit" name="submit" id="submit" value="Send Message" /></li>
+                                <li><input type="submit" name="submit" id="submit" value="Send Message" class="button"/></li>
                             </ul>
                         </form>
                     </div>
