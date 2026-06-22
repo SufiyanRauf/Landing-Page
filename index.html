@@ -151,6 +151,22 @@
                 color: #FFFFFF;
             }
 
+            /* Education */
+            .education-list {
+                max-width: 40em;
+                margin: 0 auto 2em auto;
+                text-align: left;
+            }
+            .edu-entry {
+                margin-bottom: 2em;
+            }
+            .edu-entry:last-child {
+                margin-bottom: 0;
+            }
+            .edu-entry h3 {
+                margin-bottom: 0.5em;
+            }
+
             /* Project cards */
             .project-grid {
                 display: grid;
@@ -258,21 +274,26 @@
                     </div>
                 </section>
 
-                <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="education">
-                    <div class="content">
+                <section class="wrapper style1 align-center" id="education">
+                    <div class="inner">
                         <h2>Education</h2>
-                        <h3>California State University, Fullerton</h3>
-                        <p>M.S. in Computer Science, conditionally admitted on the foundational pathway. Expected to graduate Fall 2028, with core graduate coursework starting Spring 2027.</p>
-                        <h3>California State University, Long Beach</h3>
-                        <p>B.S. in Biology, Magna Cum Laude. Graduated December 2020.</p>
-                        <h3>CodePath — Technical Training</h3>
-                        <p>Completed CodePath's Technical Interview Prep program, focused on data structures, algorithms, and problem-solving, along with its Intro to Cybersecurity course. Summer 2025.</p>
-                        <ul class="actions stacked">
+                        <div class="education-list">
+                            <div class="edu-entry">
+                                <h3>California State University, Fullerton</h3>
+                                <p>M.S. in Computer Science, conditionally admitted on the foundational pathway. Expected to graduate Fall 2028, with core graduate coursework starting Spring 2027.</p>
+                            </div>
+                            <div class="edu-entry">
+                                <h3>California State University, Long Beach</h3>
+                                <p>B.S. in Biology, Magna Cum Laude. Graduated December 2020.</p>
+                            </div>
+                            <div class="edu-entry">
+                                <h3>CodePath Technical Training</h3>
+                                <p>Completed CodePath's Technical Interview Prep program, focused on data structures, algorithms, and problem-solving, along with its Intro to Cybersecurity course. Summer 2025.</p>
+                            </div>
+                        </div>
+                        <ul class="actions">
                             <li><a href="https://www.linkedin.com/in/sufiyan-rauf/" target="_blank" class="button">View LinkedIn</a></li>
                         </ul>
-                    </div>
-                    <div class="image">
-                        <img src="images/spotlight01.jpg" alt="" />
                     </div>
                 </section>
 
