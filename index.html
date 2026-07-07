@@ -173,13 +173,49 @@
             }
 
             /* Project cards */
-            .project-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1.5em;
+            .project-carousel {
+                display: flex;
+                align-items: center;
+                gap: 0.75em;
                 margin: 1em 0 0 0;
             }
+            .project-track {
+                display: flex;
+                gap: 1.5em;
+                overflow-x: auto;
+                scroll-snap-type: x proximity;
+                flex: 1 1 auto;
+                min-width: 0;
+                padding: 0.5em 0;
+                scrollbar-width: none;
+            }
+            .project-track::-webkit-scrollbar { display: none; }
+            .car-nav {
+                flex: 0 0 auto;
+                width: 44px;
+                height: 44px;
+                min-width: 44px;
+                padding: 0;
+                margin: 0;
+                border: 2px solid #00BCD4;
+                border-radius: 50%;
+                background: transparent;
+                color: #00BCD4;
+                font-size: 24px;
+                line-height: 1;
+                letter-spacing: 0;
+                text-transform: none;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .car-nav:hover { background: #00BCD4; color: #121212; }
+            .car-nav:focus-visible { outline: 2px solid #00BCD4; outline-offset: 3px; }
+            .car-nav:disabled { opacity: 0.3; cursor: default; }
             .project-card {
+                flex: 0 0 calc((100% - 3em) / 3);
+                scroll-snap-align: start;
                 border-radius: 10px;
                 overflow: hidden;
                 display: flex;
@@ -237,14 +273,10 @@
             .project-card.accent-1 .body { background-color: #0f2f34; }
             .project-card.accent-2 .body { background-color: #332817; }
             .project-card.accent-3 .body { background-color: #1f1838; }
+            .project-card.accent-4 .body { background-color: #17253f; }
 
             @media (max-width: 980px) {
-                .project-grid {
-                    grid-template-columns: 1fr;
-                    max-width: 480px;
-                    margin-left: auto;
-                    margin-right: auto;
-                }
+                .project-card { flex: 0 0 85%; }
             }
 
         </style>
@@ -308,7 +340,49 @@
                         <p>A selection of full-stack, AI-powered web applications I’ve built and deployed.</p>
                     </div>
 
-                    <div class="project-grid onscroll-fade-in">
+                    <div class="project-carousel">
+                        <button class="car-nav car-prev" aria-label="Previous projects">&larr;</button>
+                        <div class="project-track">
+                        <article class="project-card accent-4">
+                            <a href="https://carverdict.vercel.app" target="_blank" class="shot">
+                                <img src="images/gallery/fulls/04.jpg" alt="CarVerdict screenshot" />
+                            </a>
+                            <div class="body">
+                                <h3>CarVerdict</h3>
+                                <p>A full-stack Next.js app that tells you what commonly goes wrong with a specific car. On the backend I built a RAG pipeline that embeds real NHTSA owner complaints into Pinecone and pulls the closest ones for the car you ask about, so Gemini answers from actual records and cites the complaints behind each answer. It also compares two cars side by side and charts how their complaints trend by model year.</p>
+                                <ul class="tags">
+                                    <li>Next.js</li>
+                                    <li>Gemini</li>
+                                    <li>Pinecone</li>
+                                    <li>RAG</li>
+                                    <li>Material UI</li>
+                                </ul>
+                                <ul class="actions fixed">
+                                    <li><a href="https://github.com/SufiyanRauf/CarVerdict" target="_blank" rel="noopener" class="button small">GitHub</a></li>
+                                    <li><a href="https://carverdict.vercel.app" target="_blank" rel="noopener" class="button small">Live Demo</a></li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="project-card accent-3">
+                            <a href="https://flashcard-saas-project.vercel.app/" target="_blank" class="shot">
+                                <img src="images/gallery/fulls/03.jpg" alt="SparkCards AI Flashcard SaaS screenshot" />
+                            </a>
+                            <div class="body">
+                                <h3>SparkCards: AI Flashcard SaaS</h3>
+                                <p>A flashcard SaaS built on Next.js that generates a 10-card study deck from whatever text you give it, using the Gemini API. The app prompts the model for clean JSON and parses it carefully, so a bad response won't crash the page. Clerk takes care of authentication, Firestore saves each user's decks in a single batched write, and Stripe Checkout handles the $5/month Pro plan. Saved cards show up in a flip-card study view.</p>
+                                <ul class="tags">
+                                    <li>Next.js</li>
+                                    <li>Clerk</li>
+                                    <li>Firestore</li>
+                                    <li>Stripe</li>
+                                    <li>Gemini</li>
+                                </ul>
+                                <ul class="actions fixed">
+                                    <li><a href="https://github.com/SufiyanRauf/Flashcard-SAAS-Project" target="_blank" rel="noopener" class="button small">GitHub</a></li>
+                                    <li><a href="https://flashcard-saas-project.vercel.app/" target="_blank" rel="noopener" class="button small">Live Demo</a></li>
+                                </ul>
+                            </div>
+                        </article>
                         <article class="project-card accent-1">
                             <a href="https://customer-support-ai-project.vercel.app/" target="_blank" class="shot">
                                 <img src="images/gallery/fulls/01.jpg" alt="AI Interview Prep Assistant screenshot" />
@@ -348,26 +422,8 @@
                                 </ul>
                             </div>
                         </article>
-                        <article class="project-card accent-3">
-                            <a href="https://flashcard-saas-project.vercel.app/" target="_blank" class="shot">
-                                <img src="images/gallery/fulls/03.jpg" alt="SparkCards AI Flashcard SaaS screenshot" />
-                            </a>
-                            <div class="body">
-                                <h3>SparkCards: AI Flashcard SaaS</h3>
-                                <p>A flashcard SaaS built on Next.js that generates a 10-card study deck from whatever text you give it, using the Gemini API. The app prompts the model for clean JSON and parses it carefully, so a bad response won't crash the page. Clerk takes care of authentication, Firestore saves each user's decks in a single batched write, and Stripe Checkout handles the $5/month Pro plan. Saved cards show up in a flip-card study view.</p>
-                                <ul class="tags">
-                                    <li>Next.js</li>
-                                    <li>Clerk</li>
-                                    <li>Firestore</li>
-                                    <li>Stripe</li>
-                                    <li>Gemini</li>
-                                </ul>
-                                <ul class="actions fixed">
-                                    <li><a href="https://github.com/SufiyanRauf/Flashcard-SAAS-Project" target="_blank" rel="noopener" class="button small">GitHub</a></li>
-                                    <li><a href="https://flashcard-saas-project.vercel.app/" target="_blank" rel="noopener" class="button small">Live Demo</a></li>
-                                </ul>
-                            </div>
-                        </article>
+                        </div>
+                        <button class="car-nav car-next" aria-label="Next projects">&rarr;</button>
                     </div>
                 </section>
 
@@ -379,7 +435,7 @@
                             <section>
                                 <span class="icon solid style2 major fa-brain"></span>
                                 <h3>Generative AI</h3>
-                                <p>I build apps around the Google Gemini API, including RAG pipelines that use Pinecone to pull relevant context into a model's answers.</p>
+                                <p>I build apps around the Google Gemini API, including RAG pipelines that use Pinecone to pull relevant context into a model's answers and cite the records they came from.</p>
                             </section>
                             <section>
                                 <span class="icon brands style2 major fa-js"></span>
@@ -389,7 +445,7 @@
                             <section>
                                 <span class="icon brands style2 major fa-react"></span>
                                 <h3>Frameworks & Libraries</h3>
-                                <p>Next.js and React for the frontend and the API routes behind it. I'm comfortable building responsive interfaces and wiring up the server-side logic in the same project.</p>
+                                <p>Next.js and React for the frontend and the API routes behind it. I'm comfortable building responsive interfaces and wiring up the server-side logic in the same project, and I've pulled data straight from public REST APIs like the NHTSA's with fetch.</p>
                             </section>
                             <section>
                                 <span class="icon solid style2 major fa-database"></span>
@@ -456,6 +512,20 @@
         <script src="assets/js/breakpoints.min.js"></script>
         <script src="assets/js/util.js"></script>
         <script src="assets/js/main.js"></script>
+
+        <script>
+            (function () {
+                var track = document.querySelector('.project-track');
+                if (!track) return;
+                var card = track.querySelector('.project-card');
+                var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                function go(dir) {
+                    track.scrollBy({ left: dir * (card.offsetWidth + 24), behavior: reduce ? 'auto' : 'smooth' });
+                }
+                document.querySelector('.car-prev').addEventListener('click', function () { go(-1); });
+                document.querySelector('.car-next').addEventListener('click', function () { go(1); });
+            })();
+        </script>
 
     </body>
 </html>
