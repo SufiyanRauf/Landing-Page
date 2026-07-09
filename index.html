@@ -280,6 +280,17 @@
                 .project-card { flex: 0 0 85%; }
             }
 
+            /* Skills fade in quicker so the section doesn't look like it's lagging in */
+            .items.onscroll-fade-in > * > .inner {
+                transition: opacity 0.35s ease-in-out;
+            }
+            .items.onscroll-fade-in > *:nth-child(1) > .inner { transition-delay: 0s; }
+            .items.onscroll-fade-in > *:nth-child(2) > .inner { transition-delay: 0.05s; }
+            .items.onscroll-fade-in > *:nth-child(3) > .inner { transition-delay: 0.1s; }
+            .items.onscroll-fade-in > *:nth-child(4) > .inner { transition-delay: 0.15s; }
+            .items.onscroll-fade-in > *:nth-child(5) > .inner { transition-delay: 0.2s; }
+            .items.onscroll-fade-in > *:nth-child(6) > .inner { transition-delay: 0.25s; }
+
         </style>
     </head>
     <body class="is-preload">
